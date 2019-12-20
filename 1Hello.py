@@ -42,7 +42,7 @@ snum3 = snum2+snum1
 
 
 
-print("3. Сумма 3х чисел ( n + nn + nnn ) равна = ", int(snum1)+int(snum2)+int(snum3))
+print("3. Сумма 3х Чисел ( n + nn + nnn ) равна = ", int(snum1)+int(snum2)+int(snum3))
 
 
 num = input("4. Введи целое положительное многозначное число  :")
@@ -63,7 +63,7 @@ income = int(input("5 . Введите сумму выручки фирмы : ")
 expenses = int(input("5 . Введите сумму издержек фирмы : "))
 pri = income - expenses
 
-if income < expenses :
+if income < expenses:
     print("   Фирма показывает убыток. Рассчитывать нечего...")
 else:
     print("  Фирма показывает прибыль. ")
