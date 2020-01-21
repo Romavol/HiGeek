@@ -1,5 +1,3 @@
-
-
 # --------- 1 ------------------------------------------------------------
 
 with open('test1.txt', 'w') as fi:
@@ -8,38 +6,37 @@ with open('test1.txt', 'w') as fi:
         if sss == ' ':
             break
         else:
-            fi.write(sss+'\n')
+            fi.write(sss + '\n')
 
 # ---------- 2 --------
 
 import json
+
 # Заодно поработаем с жсоном
 
 with open('test1.txt') as fi:
     alll = fi.readlines()
     print(' Кол-во строк в файле = ', len(alll))
     datj = dict()
-    lcount=0
+    lcount = 0
     for i in alll:
         stro = i.split()
-        lcount+=1
+        lcount += 1
         print(f' В строке {lcount} слов = {len(stro):.0f}  , это ', stro)
-        datj.update({'line'+str(lcount): stro})
+        datj.update({'line' + str(lcount): stro})
 
 fj = open('fiji.json', 'w')
 json.dump(datj, fj)
 fj.close()
 
-
-
 # ------- 3 ----------------------------------
-'''
-Файл для анализа :
-Иванов 13
-петров 14
-сидовов 20
-Епп 25
-'''
+
+# Файл для анализа :
+# Иванов 13
+# петров 14
+# сидовов 20
+# Епп 25
+
 
 with open('sala.txt', encoding='utf-8', newline='') as fi:
     alll = fi.readlines()
@@ -51,9 +48,7 @@ for (nn, i) in enumerate(alll):
     if int(stro[1]) < 15:
         print(f' Менее 15 зп : {stro[0]} , ', stro[1])
 
-print(f' -- Итого средняя ЗП по {nn+1} сотрудникам составляет {asum/(nn+1):.2f}')
-
-
+print(f' -- Итого средняя ЗП по {nn + 1} сотрудникам составляет {asum / (nn + 1):.2f}')
 
 # ----------- 4 -------------
 
@@ -68,7 +63,6 @@ with open('one2.txt', 'w', encoding='utf-8') as fi:
 
 f1.close()
 
-
 # ------- 5 --------------------------------------------
 
 asum = 0
@@ -78,3 +72,27 @@ with open('test1.txt', 'w') as fi:
         asum += i
 
 print('Вся сумма = ', asum)
+
+# ---------- 6 ---------------------------------------------
+'''
+Информатика:   100(л)   50(пр)   20(лаб).
+Физика:   30(л)   —   10(лаб)
+Физкультура:   —   30(пр) 
+'''
+
+with open('test1.txt', encoding='utf-8') as fi:
+    alll = fi.readlines()
+
+my_dict = dict({})
+for i in alll:  # по строкам
+    ss1 = i.split()
+    asum = 0
+    for ss in ss1:  # по словам строки
+        xx = 0
+        s_digi = '0'
+        for bb in ss:
+            s_digi = s_digi + bb if bb.isdigit() else s_digi
+        asum += int(s_digi)
+    my_dict.update({(ss1[0])[:-1]: asum})
+
+print(my_dict)
