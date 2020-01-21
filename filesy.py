@@ -49,6 +49,8 @@ for (nn, i) in enumerate(alll):
         print(f' Менее 15 зп : {stro[0]} , ', stro[1])
 
 print(f' -- Итого средняя ЗП по {nn + 1} сотрудникам составляет {asum / (nn + 1):.2f}')
+##     nums = map(int, nums.split())  # without list
+#     sum_nums = sum(nums)
 
 # ----------- 4 -------------
 
@@ -96,7 +98,8 @@ for i in alll:  # по строкам
     my_dict.update({(ss1[0])[:-1]: asum})
 
 print(my_dict)
-
+# re.findall('\d{1,}', you_str)  /d+
+##         sum_lessons = sum([int(x[:x.find('(')]) for x in splitted_line[1:] if '(' in x])
 
 # ---------- 7 -----------------
 # firm_1   ООО   10000   5000
@@ -122,3 +125,5 @@ my_list = [my_dict, dict({'average_profit': asum / (nn + 1)})]
 
 with open('fiji.json', 'w') as fj:
     json.dump(my_list, fj)
+
+##         name, form, revenue, costs = line.split()
