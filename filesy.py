@@ -75,9 +75,9 @@ print('Вся сумма = ', asum)
 
 # ---------- 6 ---------------------------------------------
 '''
-Информатика:   100(л)   50(пр)   20(лаб).
-Физика:   30(л)   —   10(лаб)
-Физкультура:   —   30(пр) 
+# Информатика:   100(л)   50(пр)   20(лаб).
+# Физика:   30(л)   —   10(лаб)
+# Физкультура:   —   30(пр)
 '''
 
 with open('test1.txt', encoding='utf-8') as fi:
@@ -96,3 +96,29 @@ for i in alll:  # по строкам
     my_dict.update({(ss1[0])[:-1]: asum})
 
 print(my_dict)
+
+
+# ---------- 7 -----------------
+# firm_1   ООО   10000   5000
+# firm_2   IP    11000   6500
+# firm_3   OOO   80000  82000
+# firm_4   IP    20000  15000
+
+import json
+
+with open('test1.txt', encoding='utf-8') as fi:
+    alll = fi.readlines()
+
+my_dict = dict({})
+asum = 0
+for (nn, i) in enumerate(alll):  # по строкам
+    ss1 = i.split()
+    profit = float(ss1[2]) - float(ss1[3])
+    asum += profit
+    if profit > 0:
+        my_dict.update({ss1[0]: profit})
+
+my_list = [my_dict, dict({'average_profit': asum / (nn + 1)})]
+
+with open('fiji.json', 'w') as fj:
+    json.dump(my_list, fj)
