@@ -31,27 +31,6 @@ t.stop()
 print(t.stats())
 
 
-# class Auto:
-#     auto_count = 0
-#     texx = ''
-#     def __init__(self):
-#         Auto.auto_count += 1
-#         print(Auto.auto_count)
-#
-#
-# # a_1 = Auto()
-# # a_1.texx='111'
-# # a_2 = Auto()
-# # Auto.texx = '12122'
-# # a_3 = Auto()
-# #
-# #
-# # print(a_1.auto_count, a_1.texx)
-# # print(a_2.auto_count, a_2.texx)
-# #
-# # print(a_3.texx)
-# # a_3.texx='111'
-# # print(a_3.texx)
 
 # ----  2 -----------------------------------------------------------------------
 
