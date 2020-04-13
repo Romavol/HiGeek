@@ -10,10 +10,16 @@ import sys
 
 # Только присоединился - начинаю делать домашку.
 zz = input("Введите знак (+-/*) или 0 для выхода : ")
-if zz == '0' :
+if zz == '0':
     sys.exit()
 
 a = float(input("Введите первое число: "))
 b = float(input("Введите второе число: "))
-
-print(f'{a+b}')
+if zz == '+':
+    print(f'{a + b}')
+elif zz == '-':
+    print(f'{a - b}')
+elif zz == '/':
+    print(f'{a / b}')
+else:
+    print(f'{a * b}')
