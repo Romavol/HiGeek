@@ -8,3 +8,5 @@ for i in ss:
     res = i + res
 
 print(int(res))
+
+
