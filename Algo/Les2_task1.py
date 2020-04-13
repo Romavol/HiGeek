@@ -15,6 +15,11 @@ if zz == '0':
 
 a = float(input("Введите первое число: "))
 b = float(input("Введите второе число: "))
+if zz == '/' and b ==0 :
+    print('На ноль не делим ! Выход.')
+    sys.exit()
+
+
 if zz == '+':
     print(f'{a + b}')
 elif zz == '-':
