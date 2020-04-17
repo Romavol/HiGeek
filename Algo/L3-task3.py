@@ -4,14 +4,14 @@
 
 import random
 
-SIZE = 30
+SIZE = 100000
 MIN_ITEM = 1
 MAX_ITEM = 200
 array = [random.randint(MIN_ITEM, MAX_ITEM) for _ in range(SIZE)]
 print(array)
 
-MIN_ITE = 10000000000000000000000  # мы какбы не знаем самого большого числа.
-MAX_ITE = -1000000000000000000000
+MIN_ITE = float('inf')  # мы какбы не знаем самого большого числа.
+MAX_ITE = float('-inf')
 
 for no, i in enumerate(array):
     if i < MIN_ITE:
