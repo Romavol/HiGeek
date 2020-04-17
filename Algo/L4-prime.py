@@ -2,23 +2,33 @@
 
 Нахождение простых чисел
 ЗААТУПИЛ ! ЭТО ПРОСТО НАХОЖДЕНИЕ Сейчас переделаю на функции...
+нахождения i-го по счёту простого числа.
 '''
 
 import timeit
 import cProfile
 import math
-NN = 500000
+
+NN = 2000000
+
 
 # Алгоритм - тупарь. Пройдемся, просеим. Без затей.
-def primes(n):
-    a =[0]+ list(range(1, n))
+def primes(ns):
+    n = int(ns)
+    a = [0] + list(range(1, NN))
     a[1] = 0
-
+    rezfind = 1
     m = 1
-    while m < n:  # перебор всех элементов до заданного числа
+    while m < NN:  # перебор всех элементов до заданного числа
+        spam = a[m]
         if a[m] != 0:  # если он не равен нулю, то
+            if rezfind == n:
+                return a[m]
+            else:
+                rezfind += 1
+
             j = m * 2  # увеличить в два раза (текущий элемент простое число)
-            while j < n:
+            while j < NN:
                 a[j] = 0  # заменить на 0
                 j = j + m  # перейти в позицию на m больше
         m += 1
@@ -28,19 +38,22 @@ def primes(n):
         if a[i] != 0:
             b.append(a[i])
 
-    return b
+    return 0
 
 
 # идея в вычитании множеств - 2ек умнорженных и т.д..
-def primes2(N):
+def primes2(NS):
+    N = int(NS)
     """Возвращает все простые от 2 до N"""
-    sieve = set(range(2, N))
-    for i in range(2, int(math.sqrt(N))):
+    sieve = set(range(2, NN))
+    for i in range(2, int(math.sqrt(NN))):
         if i in sieve:
-            sieve -= set(range(2 * i, N, i))
-    return sieve
+            sieve -= set(range(2 * i, NN, i))
 
-
+    if len(sieve) < N - 1:
+        return 0
+    else:
+        return list(sieve)[N - 1]
 
 
 def main():
@@ -48,13 +61,16 @@ def main():
     primes2(NN)
 
 
-#print(primes(NN))
-#print(primes2(NN))
+zz = input('Введите что ищем - какое по счету простое число: ')
+print(primes(zz))
+print(primes2(zz))
 
-#print('1 : ', timeit.timeit('primes(NN)',  number=10, globals=globals()))  # 0.46852359999999993
-#print('2 : ', timeit.timeit('primes2(NN)', number=10, globals=globals()))  # 0.19654269999999996
 
-cProfile.run('main()')
+# Замеры делались на "вычисление ряда чисел"
+# print('1 : ', timeit.timeit('primes(zz)', number=10, globals=globals()))  # 0.46852359999999993
+# print('2 : ', timeit.timeit('primes2(zz)', number=10, globals=globals()))  # 0.19654269999999996
+
+# cProfile.run('main()')
 
 '''
 ncalls  tottime  percall  cumtime  percall filename:lineno(function)
