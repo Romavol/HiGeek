@@ -9,6 +9,4 @@ for i in range(2, 99 + 1):
     for n in range(2, 10):
         if not i % n:
             rez[n] += 1
-rez.pop(0)
-rez.pop(0)
-print(*rez, sep=' -- ')
+
